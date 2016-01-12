@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\ResetsPasswords;
 use Illuminate\Http\Request;
+use Illuminate\Mail\Message;
+use Illuminate\Support\Facades\Password;
 
 class PasswordController extends Controller
 {
@@ -22,37 +24,71 @@ class PasswordController extends Controller
     }
 
     // Sending password reset email
+    // ----------------------------
 
     /**
-     * Get the response for after the reset link has been successfully sent.
-     * Added toastr notifications.
-     * @param  string  $response
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    protected function getSendResetLinkEmailSuccessResponse($response)
-    {
-        return redirect()->back()->with('status', trans($response))
-            ->with('success', 'A link has been sent to your email address.');
-    }
-
-    /**
-     * Get the response for after the reset link could not be sent.
+     * Send a reset link to the given user.
      * Added toastr notifications
-     * @param  string  $response
-     * @return \Symfony\Component\HttpFoundation\Response
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
      */
-    protected function getSendResetLinkEmailFailureResponse($response)
+    public function sendResetLinkEmail(Request $request)
     {
-        return redirect()->back()->withErrors(['email' => trans($response)])
-            -> with('error', 'Please verify your email address.');
+        $this->validate($request, ['email' => 'required|email']);
+
+        $response = Password::sendResetLink($request->only('email'), function (Message $message) {
+            $message->subject($this->getEmailSubject());
+        });
+
+        switch ($response) {
+            case Password::RESET_LINK_SENT:
+                return redirect()->back()->with('status', trans($response))->with('success', 'An email has been sent to your email address.');
+
+            case Password::INVALID_USER:
+                return redirect()->back()->withErrors(['email' => trans($response)])->with('error', 'An error has occured, please try again.');
+        }
     }
 
     // Resetting user's password
+    // -------------------------
 
     /**
      * Reset the given user's password.
-     * Do not login after password reset
-     *      Instead redirect to login page.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function reset(Request $request)
+    {
+        $this->validate($request, [
+            'token' => 'required',
+            'email' => 'required|email',
+            'password' => 'required|confirmed|min:6',
+        ]);
+
+        $credentials = $request->only(
+            'email', 'password', 'password_confirmation', 'token'
+        );
+
+        $response = Password::reset($credentials, function ($user, $password) {
+            $this->resetPassword($user, $password);
+        });
+
+        switch ($response) {
+            case Password::PASSWORD_RESET:
+                return redirect('login')->with('status', trans($response))->with('success', 'Your password has been reset, you can now log in.');
+
+            default:
+                return redirect()->back()
+                    ->withInput($request->only('email'))
+                    ->withErrors(['email' => trans($response)])
+                    ->with('error', 'An error has occured, please try again.');
+        }
+    }
+
+    /**
+     * Reset the given user's password.
+     * DO NOT LOG IN
      * @param  \Illuminate\Contracts\Auth\CanResetPassword  $user
      * @param  string  $password
      * @return void
@@ -64,31 +100,5 @@ class PasswordController extends Controller
         $user->save();
 
         //Auth::login($user);
-    }
-
-    /**
-     * Get the response for after a successful password reset.
-     * Added toastr notification.
-     * @param  string  $response
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    protected function getResetSuccessResponse($response)
-    {
-        return redirect($this->redirectPath())->with('success', 'Your password has been successfully reset.')->with('status', trans($response));
-    }
-
-    /**
-     * Get the response for after a failing password reset.
-     * Added toastr notification
-     * @param  Request  $request
-     * @param  string  $response
-     * @return \Symfony\Component\HttpFoundation\Response
-     */
-    protected function getResetFailureResponse(Request $request, $response)
-    {
-        return redirect()->back()
-            ->withInput($request->only('email'))
-            ->withErrors(['email' => trans($response)])
-            ->with('error', 'An error occured, please verify your password.');
     }
 }

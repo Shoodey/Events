@@ -42,7 +42,7 @@
 
                 <div class="form-group has-feedback {{ $errors->has('password_confirmation') ? ' has-error' : '' }}">
                     <input type="password" class="form-control" placeholder="Verify new password" name="password_confirmation" required>
-                    <span class="glyphicon glyphicon-refresh form-control-feedback"></span>
+                    <span class="glyphicon glyphicon-repeat form-control-feedback"></span>
                     @if ($errors->has('password_confirmation'))
                         <label class="control-label">
                             <i class="fa fa-times-circle-o"></i>
