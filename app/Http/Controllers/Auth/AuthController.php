@@ -15,7 +15,9 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
-    // User activation security handled in Authenticare middleware
+    /*
+     * User activation security handled in Authenticare middleware
+     */
 
     use AuthenticatesAndRegistersUsers, ThrottlesLogins;
 
@@ -85,6 +87,7 @@ class AuthController extends Controller
     }
 
     // Login
+    // -----
 
     /**
      * Added toastr notification.
@@ -125,6 +128,7 @@ class AuthController extends Controller
     }
 
     // Register
+    // --------
 
     public function postRegister(Request $request)
     {
@@ -142,6 +146,7 @@ class AuthController extends Controller
     }
 
     // Activation
+    // ----------
 
     /**
      * Activate accounts if logged in as.
@@ -196,6 +201,11 @@ class AuthController extends Controller
         return view('auth.lock', compact('name'));
     }
 
+    /**
+     * Checks if passwords match then login
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse
+     */
     protected function lockPost(Request $request){
         $user = User::where('id', Session::get('lastUser'))->first();
 
@@ -208,13 +218,16 @@ class AuthController extends Controller
     }
 
     // Logout
+    // ------
 
+    /**
+     * Added toastr notification.
+     * @return \Illuminate\Http\RedirectResponse
+     */
     public function logout()
     {
         Auth::guard($this->getGuard())->logout();
         return redirect(property_exists($this, 'redirectAfterLogout') ? $this->redirectAfterLogout : '/')->with('error', 'You are now logged out.');
     }
-
-
 
 }
