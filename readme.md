@@ -61,6 +61,7 @@ Completed Tasks
 > **Lockscreen:**
 > 
 > * When loging out, the user's session is locked, allowing him to simply re-login using only password.
+> * The user can also chose to login user a different account.
 >
 > **Password Reset**
 >
