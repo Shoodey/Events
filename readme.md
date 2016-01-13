@@ -68,7 +68,7 @@ Completed Tasks
 > * If password is forgotten, the user can send a password reset request to his email address.
 > * The link will allow him to set a new password then login.
 > 
-> **Notifications:**
+> **Toasts:**
 > 
 > * The user is notified each time he performs a major action using [toastr](https://github.com/CodeSeven/toastr).
 > 
@@ -91,5 +91,8 @@ TODO
 > * Each role has a set of permissions.
 > * A `superAdmin` role is assigned to the application admin, providing him a full accces.
 > 
+> **Notifications:**
+>
+> * Manage notifications using [notifynder](https://github.com/fenos/Notifynder).
 
 -----------
