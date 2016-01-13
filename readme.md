@@ -72,16 +72,17 @@ Completed Tasks
 > 
 > * The user is notified each time he performs a major action using [toastr](https://github.com/CodeSeven/toastr).
 > 
+> **Emails:**
+>
+> * An email is sent to the user's email address each time he performs a major action.
+> * Email template is handled using [BeautyMail](https://github.com/Snowfire/Beautymail).
+>
 
 ----------
 
 TODO
 -------
 
-> **Emails:**
->
-> * An email is sent to the user's email address each time he performs a major action.
-> * Email template is handled using [BeautyMail](https://github.com/Snowfire/Beautymail).
 >
 > **Roles & Permissions:**
 > 
