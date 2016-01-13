@@ -160,6 +160,7 @@ return [
          * Own Service Providers...
          */
         Barryvdh\Debugbar\ServiceProvider::class,
+        Snowfire\Beautymail\BeautymailServiceProvider::class,
     ],
 
     /*

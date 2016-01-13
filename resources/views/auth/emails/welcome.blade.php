@@ -1,3 +1,14 @@
-<p>Hello <b>{{$name}}</b>, Welcome thank you for signing up !</p>
-<p>An administrator will validate your account within 24 hours. <br>
-    If you think it's taking too long, please send an email explaining your situation at: shoodey@gmail.com</p>
+@extends('emails.beautymail.widgets')
+
+@section('content')
+
+    @include('emails.beautymail.widgets.articleStart')
+
+    <h4 class="secondary"><strong>Welcome {{ $name }}</strong></h4>
+
+    <p>An administrator will validate your account within 24 hours. </p>
+    <p>If you think this operation is taking too long, please send an email explaining your situation at: <strong>contact@uirevents.com</strong></p>
+
+    @include('emails.beautymail.widgets.articleEnd')
+
+@stop

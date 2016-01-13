@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
 use Illuminate\Support\Facades\Session;
 use Illuminate\Support\Facades\Validator;
+use Snowfire\Beautymail\Beautymail;
 
 class AuthController extends Controller
 {
@@ -69,14 +70,16 @@ class AuthController extends Controller
         $data['id'] = $user->id;
         $data['token'] = $token;
 
-        Mail::send('auth.emails.welcome', $data, function($message) use ($data)
+
+        $beautymail = app()->make(Beautymail::class);
+        $beautymail->send('auth.emails.welcome', $data, function($message) use ($data)
         {
             $message->from('noreply@uir-event.com', "UIR Events");
             $message->subject("Welcome Email");
             $message->to($data['email']);
         });
 
-        Mail::send('auth.emails.activate', $data, function($message) use ($data)
+        $beautymail->send('auth.emails.activate', $data, function($message) use ($data)
         {
             $message->from('noreply@uir-event.com', "UIR Events");
             $message->subject("Activate New User");
@@ -105,7 +108,6 @@ class AuthController extends Controller
     }
 
     /**
-     * Do not login user after registration.
      * Puts logged in user's id in session.
      * Added toastr notification.
      * @param Request $request
@@ -130,7 +132,13 @@ class AuthController extends Controller
     // Register
     // --------
 
-    public function postRegister(Request $request)
+    /**
+     * Handle a registration request for the application.
+     * DO NOT login after registration
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function register(Request $request)
     {
         $validator = $this->validator($request->all());
 
@@ -142,7 +150,8 @@ class AuthController extends Controller
 
         //Auth::login($this->create($request->all()));
         $this->create($request->all());
-        return redirect('/')->with('success', 'Congratulations, please check your email address.');
+
+        return redirect('login')->with('success', 'Registration successful, please check your email.');
     }
 
     // Activation
@@ -170,7 +179,8 @@ class AuthController extends Controller
             $data['name'] = $user->name;
             $data['email'] = $user->email;
 
-            Mail::send('auth.emails.active', $data, function($message) use ($data)
+            $beautymail = app()->make(Beautymail::class);
+            $beautymail->send('auth.emails.active', $data, function($message) use ($data)
             {
                 $message->from('noreply@uir-event.com', "UIR Events");
                 $message->subject("Account activated");

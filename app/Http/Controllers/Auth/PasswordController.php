@@ -29,6 +29,7 @@ class PasswordController extends Controller
     /**
      * Send a reset link to the given user.
      * Added toastr notifications
+     * Changed default mail to beautyMail
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
