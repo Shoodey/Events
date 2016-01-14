@@ -29,6 +29,14 @@
                 <a href="{{ url('/') }}"><i class="fa fa-home"></i> <span>Dashboard</span></a>
             </li>
 
+            <li class="{{ $tab == 'roles' ? 'active' : '' }}">
+                <a href="{{ route('admin.roles.index') }}"><i class="fa fa-tags"></i> <span>Roles</span></a>
+            </li>
+
+            <li class="{{ $tab == 'permissions' ? 'active' : '' }}">
+                <a href="{{ url('/') }}"><i class="fa fa-adjust"></i> <span>Roles</span></a>
+            </li>
+
             <li class="treeview">
                 <a href="#">
                     <i class="fa fa-files-o"></i>

@@ -161,6 +161,7 @@ return [
          */
         Barryvdh\Debugbar\ServiceProvider::class,
         Snowfire\Beautymail\BeautymailServiceProvider::class,
+        Zizaco\Entrust\EntrustServiceProvider::class
     ],
 
     /*
@@ -206,6 +207,8 @@ return [
         'URL'       => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
+
+        'Entrust' => Zizaco\Entrust\EntrustServiceProvider::class
 
     ],
 

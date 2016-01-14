@@ -4,25 +4,41 @@ elixir.config.sourcemaps = false;
 
 elixir(function (mix) {
 
-    // Plugins
-    // -------
+    /*
+        Plugins:
+        --------
+            iCheck
+            toastr
+            dataTables
+            fastClick
+            slimScroll
+     */
 
     mix.less('../plugins/iCheck/all.less', 'resources/assets/plugins/icheck.css');
 
     mix.styles([
         '../plugins/icheck.css',
-        '../plugins/toastr/toastr.css'
+        '../plugins/toastr/toastr.css',
+        '../plugins/datatables/dataTables.bootstrap.css'
     ], 'resources/assets/css/plugins.css');
 
     mix.scripts([
         '../plugins/iCheck/icheck.js',
         '../plugins/fastClick/fastclick.js',
         '../plugins/slimScroll/jquery.slimscroll.js',
-        '../plugins/toastr/toastr.js'
+        '../plugins/toastr/toastr.js',
+        '../plugins/datatables/jquery.dataTables.js',
+        '../plugins/datatables/dataTables.bootstrap.js'
     ], 'resources/assets/js/plugins.js');
 
-    // Styles
-    // -------
+    /*
+        Styles:
+        -------
+            AdminLTE
+            Bootstrap
+            fontAwesome
+            ionicons
+     */
 
     mix.less('AdminLTE.less', 'resources/assets/css/AdminLTE.css');
 
@@ -36,8 +52,13 @@ elixir(function (mix) {
         'plugins.css'
     ], 'public/css/app.min.css');
 
-    // Scripts
-    // -------
+    /*
+        Scripts:
+        --------
+            jQuery
+            bootstrap
+            AdminLTE
+     */
 
     mix.scripts([
         'jQuery.js',
@@ -47,8 +68,12 @@ elixir(function (mix) {
     ], 'public/js/app.min.js');
 
 
-    // Misc (fonts & images)
-    // ----
+    /*
+        Misc:
+        -----
+            fonts
+            images
+     */
 
     mix.copy('resources/assets/fonts', 'public/fonts');
 

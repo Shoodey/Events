@@ -77,6 +77,10 @@ Completed Tasks
 > * An email is sent to the user's email address each time he performs a major action.
 > * Email template is handled using [BeautyMail](https://github.com/Snowfire/Beautymail).
 >
+> **Roles:**
+> 
+> * Index
+> 
 
 ----------
 
