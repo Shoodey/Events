@@ -160,8 +160,8 @@ return [
          * Own Service Providers...
          */
         Barryvdh\Debugbar\ServiceProvider::class,
-        Snowfire\Beautymail\BeautymailServiceProvider::class,
-        Zizaco\Entrust\EntrustServiceProvider::class
+        Zizaco\Entrust\EntrustServiceProvider::class,
+        AdamWathan\BootForms\BootFormsServiceProvider::class,
     ],
 
     /*
@@ -208,7 +208,8 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View'      => Illuminate\Support\Facades\View::class,
 
-        'Entrust' => Zizaco\Entrust\EntrustServiceProvider::class
+        'Entrust' => Zizaco\Entrust\EntrustServiceProvider::class,
+        'BootForm' => AdamWathan\BootForms\Facades\BootForm::class,
 
     ],
 

@@ -4,9 +4,93 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "d6577a90cd0fdf2d248ff372e3790c78",
-    "content-hash": "59b51bf49c069b9d1b49240bf3a2eae6",
+    "hash": "f3af9508dc031581c78e79662bbacb64",
+    "content-hash": "38b0f628559afaea43f3e42719078cdf",
     "packages": [
+        {
+            "name": "adamwathan/bootforms",
+            "version": "v0.7.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adamwathan/bootforms.git",
+                "reference": "9da18932543690d98e45dd684f5acd8bb9a86349"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adamwathan/bootforms/zipball/9da18932543690d98e45dd684f5acd8bb9a86349",
+                "reference": "9da18932543690d98e45dd684f5acd8bb9a86349",
+                "shasum": ""
+            },
+            "require": {
+                "adamwathan/form": "~0.7.1",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "mockery/mockery": "0.9.*",
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "AdamWathan\\BootForms": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Wathan",
+                    "email": "adam.wathan@gmail.com"
+                }
+            ],
+            "description": "Just a Formbuilder with some Bootstrap specific conveniences. Remembers old input, retrieves error messages and handles all your boilerplate Bootstrap markup automatically.",
+            "time": "2015-12-08 16:07:27"
+        },
+        {
+            "name": "adamwathan/form",
+            "version": "v0.7.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/adamwathan/form.git",
+                "reference": "e99a0a046d150adb1b2ef6b1fb1ab73b51d2929e"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/adamwathan/form/zipball/e99a0a046d150adb1b2ef6b1fb1ab73b51d2929e",
+                "reference": "e99a0a046d150adb1b2ef6b1fb1ab73b51d2929e",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.0"
+            },
+            "require-dev": {
+                "illuminate/support": "4.*",
+                "mockery/mockery": "~0.9",
+                "phpunit/phpunit": "3.7.*",
+                "satooshi/php-coveralls": "dev-master"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "AdamWathan\\Form": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Adam Wathan",
+                    "email": "adam.wathan@gmail.com"
+                }
+            ],
+            "description": "A basic framework agnostic form building package with a few extra niceties like remembering old input and retrieving error messages.",
+            "time": "2015-08-07 18:04:49"
+        },
         {
             "name": "barryvdh/laravel-debugbar",
             "version": "v2.1.1",
@@ -901,68 +985,6 @@
             "time": "2016-01-06 13:31:20"
         },
         {
-            "name": "pelago/emogrifier",
-            "version": "V1.0.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/jjriv/emogrifier.git",
-                "reference": "1160bcbc523c7941d2d0dc2a9e59c51c66420b4b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/jjriv/emogrifier/zipball/1160bcbc523c7941d2d0dc2a9e59c51c66420b4b",
-                "reference": "1160bcbc523c7941d2d0dc2a9e59c51c66420b4b",
-                "shasum": ""
-            },
-            "require": {
-                "ext-mbstring": "*",
-                "php": ">=5.4.0"
-            },
-            "require-dev": {
-                "phpunit/phpunit": "4.8.11",
-                "squizlabs/php_codesniffer": "2.3.4",
-                "typo3-ci/typo3sniffpool": "2.1.1"
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-master": "1.1.x-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Pelago\\": "Classes/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "John Reeve",
-                    "email": "jreeve@pelagodesign.com"
-                },
-                {
-                    "name": "Cameron Brooks"
-                },
-                {
-                    "name": "Jaime Prado"
-                },
-                {
-                    "name": "Oliver Klee",
-                    "email": "typo3-coding@oliverklee.de"
-                },
-                {
-                    "name": "Roman Ožana",
-                    "email": "ozana@omdesign.cz"
-                }
-            ],
-            "description": "Converts CSS styles into inline style attributes in your HTML code",
-            "homepage": "http://www.pelagodesign.com/sidecar/emogrifier/",
-            "time": "2015-10-14 22:22:15"
-        },
-        {
             "name": "psr/log",
             "version": "1.0.0",
             "source": {
@@ -1071,49 +1093,6 @@
                 "shell"
             ],
             "time": "2015-11-12 16:18:56"
-        },
-        {
-            "name": "snowfire/beautymail",
-            "version": "dev-master",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/Snowfire/Beautymail.git",
-                "reference": "873e4f9291bc8bba9fda8a761fb47f6fa69ef245"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/Snowfire/Beautymail/zipball/873e4f9291bc8bba9fda8a761fb47f6fa69ef245",
-                "reference": "873e4f9291bc8bba9fda8a761fb47f6fa69ef245",
-                "shasum": ""
-            },
-            "require": {
-                "illuminate/support": "4.*|5.*",
-                "pelago/emogrifier": "@dev",
-                "php": ">=5.4.0"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Snowfire\\Beautymail\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Emil Sundberg",
-                    "email": "emil@snowfire.net"
-                }
-            ],
-            "description": "Send beautiful html emails with Laravel",
-            "keywords": [
-                "email",
-                "html",
-                "laravel"
-            ],
-            "time": "2015-11-30 08:34:38"
         },
         {
             "name": "swiftmailer/swiftmailer",
@@ -3291,7 +3270,6 @@
     "aliases": [],
     "minimum-stability": "stable",
     "stability-flags": {
-        "snowfire/beautymail": 20,
         "zizaco/entrust": 20
     },
     "prefer-stable": false,

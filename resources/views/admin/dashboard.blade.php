@@ -3,10 +3,11 @@
 @section('title', '| Dashboard')
 
 @section('content')
+
     <section class="content-header">
         <h1>
             Dashboard
-            <small>Manage the website from here</small>
+            <small>A general overview</small>
         </h1>
         <ol class="breadcrumb">
             <li class="active"><i class="fa fa-home"></i> Dashboard</li>

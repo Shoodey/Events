@@ -33,7 +33,9 @@
     });
 </script>
 
+@yield('notifications')
 @yield('scripts')
+
 
 </body>
 </html>

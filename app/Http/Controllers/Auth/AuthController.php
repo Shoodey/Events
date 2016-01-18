@@ -30,8 +30,8 @@ class AuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => ['logout', 'getConfirm']]);
-        $this->middleware('auth', ['only' => 'getConfirm']);
+        $this->middleware('guest', ['except' => ['logout', 'activate']]);
+        $this->middleware('auth', ['only' => 'activate']);
     }
 
     /**
@@ -71,15 +71,14 @@ class AuthController extends Controller
         $data['token'] = $token;
 
 
-        $beautymail = app()->make(Beautymail::class);
-        $beautymail->send('auth.emails.welcome', $data, function($message) use ($data)
+        Mail::send('auth.emails.welcome', $data, function($message) use ($data)
         {
             $message->from('noreply@uir-event.com', "UIR Events");
             $message->subject("Welcome Email");
             $message->to($data['email']);
         });
 
-        $beautymail->send('auth.emails.activate', $data, function($message) use ($data)
+        Mail::send('auth.emails.activate', $data, function($message) use ($data)
         {
             $message->from('noreply@uir-event.com', "UIR Events");
             $message->subject("Activate New User");
@@ -179,8 +178,7 @@ class AuthController extends Controller
             $data['name'] = $user->name;
             $data['email'] = $user->email;
 
-            $beautymail = app()->make(Beautymail::class);
-            $beautymail->send('auth.emails.active', $data, function($message) use ($data)
+            Mail::send('auth.emails.active', $data, function($message) use ($data)
             {
                 $message->from('noreply@uir-event.com', "UIR Events");
                 $message->subject("Account activated");

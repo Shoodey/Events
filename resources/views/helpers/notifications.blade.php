@@ -1,4 +1,4 @@
-@section('scripts')
+@section('notifications')
     <script>
         toastr.options = {
             "closeButton": false,

@@ -58,12 +58,14 @@ elixir(function (mix) {
             jQuery
             bootstrap
             AdminLTE
+            Laravel
      */
 
     mix.scripts([
         'jQuery.js',
         'bootstrap.js',
         'AdminLTE.js',
+        'laravel.js',
         'plugins.js'
     ], 'public/js/app.min.js');
 

@@ -34,7 +34,7 @@
             </li>
 
             <li class="{{ $tab == 'permissions' ? 'active' : '' }}">
-                <a href="{{ url('/') }}"><i class="fa fa-adjust"></i> <span>Roles</span></a>
+                <a href="{{ route('admin.permissions.index') }}"><i class="fa fa-adjust"></i> <span>Permissions</span></a>
             </li>
 
             <li class="treeview">

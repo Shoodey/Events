@@ -5,6 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>UIR Events @yield("title")</title>
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
+    <meta name="csrf-token" content="{!! csrf_token() !!}"/>
     <link href="{{ asset("css/app.min.css")}}" rel="stylesheet" type="text/css"/>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -34,6 +35,7 @@
 
 <script src="{{ asset ("js/app.min.js") }}"></script>
 
+@yield('notifications')
 @yield('scripts')
 
 </body>

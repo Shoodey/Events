@@ -60,6 +60,7 @@
 
     <script src="{{ asset('js/app.min.js') }}"></script>
 
+    @yield('notifications')
     @yield('scripts')
 
 </body>
