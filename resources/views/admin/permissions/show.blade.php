@@ -1,6 +1,6 @@
 @extends('layouts.admin')
 
-@section('title', '| Permission')
+@section('title', '| Permissions')
 
 @section('content')
 

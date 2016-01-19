@@ -32,7 +32,7 @@
                                     <td>{{ $role->id }}</td>
                                     <td>{{ $role->display_name }}</td>
                                     <td>{{ $role->name }}</td>
-                                    <td>0</td>
+                                    <td>{{ $role->users->count() }}</td>
                                     <td class="hidden-sm hidden-xs">{{ str_limit($role->description, 50) }}</td>
                                     <td>
                                         <a href="{{ route('admin.roles.show', $role) }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
