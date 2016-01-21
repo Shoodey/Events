@@ -32,6 +32,13 @@
                     </div>
 
                     <div class="box-body">
+
+                        <div class="callout callout-danger">
+                            <p>
+                                All <code>create, save</code> and <code>edit, update</code> permissions must always go along.
+                            </p>
+                        </div>
+
                         @foreach($permissions->groupBy('model') as $model => $permissions)
                             @if($permissions->first()->model == 'users')
                                 <?php $color = 'text-blue'; $iCheck = 'iCheck-blue'?>
@@ -50,7 +57,7 @@
                                         @foreach($permissions as $permission)
                                             <div class="checkbox icheck">
                                                 <label>
-                                                    <input class="{{ $iCheck }}" type="checkbox" name="permissions[{{ $permission->id }}]">
+                                                    <input id="{{ $permission->name }}" class="{{ $iCheck }}" type="checkbox" name="permissions[{{ $permission->id }}]">
                                                     {{ $permission->display_name }}
                                                 </label>
                                             </div>
@@ -86,6 +93,34 @@
             });
             $('.iCheck-orange').iCheck({
                 checkboxClass: 'icheckbox_square-orange'
+            });
+
+            var models = ['users', 'roles', 'permissions'];
+
+            jQuery.each(models, function(index, value) {
+                $("#create-" + value).on('ifChecked', function(){
+                    $("#store-" + value).iCheck('check');
+                }).on('ifUnchecked', function(){
+                    $("#store-" + value).iCheck('uncheck');
+                });
+
+                $("#store-" + value).on('ifChecked', function(){
+                    $("#create-" + value).iCheck('check');
+                }).on('ifUnchecked', function(){
+                    $("#create-" + value).iCheck('uncheck');
+                });
+
+                $("#edit-" + value).on('ifChecked', function(){
+                    $("#update-" + value).iCheck('check');
+                }).on('ifUnchecked', function(){
+                    $("#update-" + value).iCheck('uncheck');
+                });
+
+                $("#update-" + value).on('ifChecked', function(){
+                    $("#edit-" + value).iCheck('check');
+                }).on('ifUnchecked', function(){
+                    $("#edit-" + value).iCheck('uncheck');
+                });
             });
         });
     </script>

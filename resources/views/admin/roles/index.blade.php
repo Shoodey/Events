@@ -23,7 +23,9 @@
                                 <th>Role</th>
                                 <th>Users</th>
                                 <th class="hidden-sm hidden-xs">Description</th>
-                                <th>Actions</th>
+                                @if(Auth::user()->can(['show-roles', 'edit-roles', 'destroy-roles']))
+                                    <th>Actions</th>
+                                @endif
                             </tr>
                             </thead>
                             <tbody>
@@ -34,18 +36,34 @@
                                     <td>{{ $role->name }}</td>
                                     <td>{{ $role->users->count() }}</td>
                                     <td class="hidden-sm hidden-xs">{{ str_limit($role->description, 50) }}</td>
-                                    <td>
-                                        <a href="{{ route('admin.roles.show', $role) }}" class="btn btn-success"><i class="fa fa-eye"></i></a>
-                                        <a class="btn btn-primary" href="{{ route('admin.roles.edit', $role) }}"><i class="fa fa-edit"></i></a>
-                                        <a class="btn btn-danger" href="{{ route('admin.roles.destroy', $role) }}" data-method="delete" data-confirm="Are you sure to delete this role?"><i class="fa fa-remove"></i></a>
-                                    </td>
+                                    @if(Auth::user()->can(['show-roles', 'edit-roles', 'destroy-roles']))
+                                        <td>
+                                            @if(Auth::user()->can('show-roles'))
+                                                <a href="{{ route('admin.roles.show', $role) }}" class="btn btn-success">
+                                                    <i class="fa fa-eye"></i></a>
+                                            @endif
+
+                                            @if(Auth::user()->can('edit-roles'))
+                                                <a class="btn btn-primary" href="{{ route('admin.roles.edit', $role) }}">
+                                                    <i class="fa fa-edit"></i></a>
+                                            @endif
+
+                                            @if(Auth::user()->can('destroy-roles'))
+                                                <a class="btn btn-danger" href="{{ route('admin.roles.destroy', $role) }}"
+                                                   data-method="delete" data-confirm="Are you sure to delete this role?">
+                                                    <i class="fa fa-remove"></i></a>
+                                            @endif
+                                        </td>
+                                    @endif
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <p><a class="btn btn-primary" href="{{ route('admin.roles.create') }}">Create new role</a></p>
+                @if(Auth::user()->can('create-roles'))
+                    <p><a class="btn btn-primary" href="{{ route('admin.roles.create') }}">Create new role</a></p>
+                @endif
             </div>
         </div>
     </section>

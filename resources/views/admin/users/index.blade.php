@@ -23,7 +23,9 @@
                                 <th>Role</th>
                                 <th>Email</th>
                                 <th>Active</th>
-                                <th>Actions</th>
+                                @if(Auth::user()->can(['show-users', 'edit-users', 'destroy-users']))
+                                    <th>Actions</th>
+                                @endif
                             </tr>
                             </thead>
                             <tbody>
@@ -46,22 +48,34 @@
                                             <i class="fa fa-times-circle-o text-red"></i>
                                         @endif
                                     </td>
+                                    @if(Auth::user()->can(['show-users', 'edit-users', 'destroy-users']))
                                     <td>
-                                        <a href="{{ route('admin.users.show', $user) }}" class="btn btn-success"><i
-                                                    class="fa fa-eye"></i></a>
-                                        <a class="btn btn-primary" href="{{ route('admin.users.edit', $user) }}"><i
-                                                    class="fa fa-edit"></i></a>
-                                        <a class="btn btn-danger" href="{{ route('admin.users.destroy', $user) }}"
-                                           data-method="delete" data-confirm="Are you sure to delete this user?"><i
-                                                    class="fa fa-remove"></i></a>
+                                        @if(Auth::user()->can('show-users'))
+                                            <a href="{{ route('admin.users.show', $user) }}" class="btn btn-success">
+                                                <i class="fa fa-eye"></i></a>
+                                        @endif
+
+                                        @if(Auth::user()->can('edit-users'))
+                                            <a class="btn btn-primary" href="{{ route('admin.users.edit', $user) }}">
+                                                <i class="fa fa-edit"></i></a>
+                                        @endif
+
+                                        @if(Auth::user()->can('destroy-users'))
+                                            <a class="btn btn-danger" href="{{ route('admin.users.destroy', $user) }}"
+                                           data-method="delete" data-confirm="Are you sure to delete this user?">
+                                                <i class="fa fa-remove"></i></a>
+                                        @endif
                                     </td>
+                                    @endif
                                 </tr>
                             @endforeach
                             </tbody>
                         </table>
                     </div>
                 </div>
-                <p><a class="btn btn-primary" href="{{ route('admin.users.create') }}">Create new user</a></p>
+                @if(Auth::user()->can('create-users'))
+                    <p><a class="btn btn-primary" href="{{ route('admin.users.create') }}">Create new user</a></p>
+                @endif
             </div>
         </div>
     </section>

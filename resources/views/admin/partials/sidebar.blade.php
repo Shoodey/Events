@@ -27,20 +27,26 @@
                 <a href="{{ url('/') }}"><i class="fa fa-home"></i> <span>Dashboard</span></a>
             </li>
 
-            @if(Auth::user()->hasRole('admin'))
-                <li class="header">ADMINISTRATION</li>
+            @if(Auth::user()->can(['index-users', 'index-roles', 'index-permissions']))
+                <li class="header">Access Control</li>
 
+                @if(Auth::user()->can('index-users'))
                 <li class="{{ $tab == 'users' ? 'active' : '' }}">
                     <a href="{{ route('admin.users.index') }}"><i class="fa fa-users"></i> <span>Users</span></a>
                 </li>
+                @endif
 
+                @if(Auth::user()->can('index-roles'))
                 <li class="{{ $tab == 'roles' ? 'active' : '' }}">
                     <a href="{{ route('admin.roles.index') }}"><i class="fa fa-tags"></i> <span>Roles</span></a>
                 </li>
+                @endif
 
+                @if(Auth::user()->can('index-permissions'))
                 <li class="{{ $tab == 'permissions' ? 'active' : '' }}">
                     <a href="{{ route('admin.permissions.index') }}"><i class="fa fa-adjust"></i> <span>Permissions</span></a>
                 </li>
+                @endif
             @endif
 
             <li class="treeview">
