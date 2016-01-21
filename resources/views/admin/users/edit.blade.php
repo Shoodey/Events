@@ -25,7 +25,7 @@
                     <div class="box-body">
                         {!! BootForm::text('Full name', 'name')->value(old('name', $user->name))->required() !!}
                         {!! BootForm::email('Email', 'email')->value(old('email', $user->email))->required() !!}
-                        {!! BootForm::select('Role', 'role')->options($roles)->required() !!}
+                        {!! BootForm::select('Role', 'role')->options($roles)->select($user->roles->first()['id'])->required() !!}
                         {!! BootForm::password('Password', 'password')->placeholder('Leave empty of not changing.') !!}
                         {!! BootForm::password('Confirm password', 'password_confirmation')->placeholder('Leave empty of not changing.') !!}
                         @if($user->active)
