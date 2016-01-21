@@ -13,6 +13,7 @@ Route::group(['middleware' => 'web'], function () {
     Route::auth();
 
     Route::group(['prefix' => 'admin'], function () {
+        Route::resource('users', 'UsersController');
         Route::resource('roles', 'RolesController');
         Route::resource('permissions', 'PermissionsController');
     });

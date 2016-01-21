@@ -77,7 +77,7 @@
                                 @foreach($role->perms->groupBy('model') as $model => $permissions)
 
                                     @if($permissions->first()->model == 'users')
-                                        <?php $color = 'bg-aqua-active'; $secondaryColor = 'bg-aqua'; ?>
+                                        <?php $color = 'bg-blue-active'; $secondaryColor = 'bg-blue'; ?>
                                     @elseif($permissions->first()->model == 'roles')
                                         <?php $color = 'bg-maroon-active'; $secondaryColor = 'bg-maroon'; ?>
                                     @elseif($permissions->first()->model == 'permissions')

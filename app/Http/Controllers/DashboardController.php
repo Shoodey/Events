@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
+use App\Permission;
+use App\Role;
 use App\User;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Illuminate\Support\Facades\DB;
 
 class DashboardController extends Controller
 {
@@ -17,8 +20,23 @@ class DashboardController extends Controller
     {
         $tab = 'dashboard';
 
-        $usersCount = User::all()->count();
+        $users = User::get();
+        $usersCount = $users->count();
+        $activeUsers = $users->where('active', 1)->count();
+        $inactiveUsers = $usersCount - $activeUsers;
 
-        return view('admin.dashboard', compact('tab', 'usersCount'));
+
+        $roles = Role::get();
+        $rolesCount = $roles->count();
+        $usersWithRole = DB::table('role_user')->count();
+
+
+        $permissionsCount = Permission::get()->count();
+
+        return view('admin.dashboard', compact(
+            'tab', 'usersCount', 'activeUsers', 'inactiveUsers',
+            'rolesCount', 'usersWithRole',
+            'permissionsCount'
+        ));
     }
 }

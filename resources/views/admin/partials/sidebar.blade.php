@@ -23,10 +23,14 @@
         </form>
 
         <ul class="sidebar-menu">
-            <li class="header">NAVIGATION</li>
-
             <li class="{{ $tab == 'dashboard' ? 'active' : '' }}">
                 <a href="{{ url('/') }}"><i class="fa fa-home"></i> <span>Dashboard</span></a>
+            </li>
+
+            <li class="header">ADMINISTRATION</li>
+
+            <li class="{{ $tab == 'users' ? 'active' : '' }}">
+                <a href="{{ route('admin.users.index') }}"><i class="fa fa-users"></i> <span>Users</span></a>
             </li>
 
             <li class="{{ $tab == 'roles' ? 'active' : '' }}">

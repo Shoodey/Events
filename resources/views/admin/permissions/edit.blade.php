@@ -16,7 +16,7 @@
             <div class="col-xs-12">
                 <div class="box box-primary">
                     <div class="box-header with-border">
-                        <h3 class="box-title"><i class="fa fa-pencil-square-o"></i> Edit a permission</h3>
+                        <h3 class="box-title"><i class="fa fa-adjust"></i> Edit a permission</h3>
                     </div>
 
                     {!! BootForm::openHorizontal($columnSizes)->put()->action(route('admin.permissions.update', $permission)) !!}
