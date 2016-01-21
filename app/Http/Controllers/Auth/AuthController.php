@@ -57,18 +57,14 @@ class AuthController extends Controller
      */
     protected function create(array $data)
     {
-        $token = str_random(60);
 
         $user = User::create([
             'name' => $data['name'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
-            'activation_token' => $token
         ]);
 
         $data['id'] = $user->id;
-        $data['token'] = $token;
-
 
         Mail::send('auth.emails.welcome', $data, function($message) use ($data)
         {
@@ -162,31 +158,31 @@ class AuthController extends Controller
      * @param $token
      * @return \Illuminate\Http\RedirectResponse
      */
-    protected function activate($id, $token){
-        $user = User::findOrFail($id);
-
-        if($user->active != 0){
-            return redirect('/')->with('error', "{$user->email} account has already been activated.");
-        }
-
-        if($user->activation_token === $token){
-            $user->activation_token = '';
-            $user->active = 1;
-            $user->save();
-
-            $data['name'] = $user->name;
-            $data['email'] = $user->email;
-
-            Mail::send('auth.emails.active', $data, function($message) use ($data)
-            {
-                $message->from('noreply@uir-event.com', "UIR Events");
-                $message->subject("Account activated");
-                $message->to($data['email']);
-            });
-            return redirect('/')->with('success', "{$user->email} account has been activated.");
-        }
-        return redirect('/')->with('error', 'This link doesn\'t seem to be valid.');
-    }
+//    protected function activate($id, $token){
+//        $user = User::findOrFail($id);
+//
+//        if($user->active != 0){
+//            return redirect('/')->with('error', "{$user->email} account has already been activated.");
+//        }
+//
+//        if($user->activation_token === $token){
+//            $user->activation_token = '';
+//            $user->active = 1;
+//            $user->save();
+//
+//            $data['name'] = $user->name;
+//            $data['email'] = $user->email;
+//
+//            Mail::send('auth.emails.active', $data, function($message) use ($data)
+//            {
+//                $message->from('noreply@uir-event.com', "UIR Events");
+//                $message->subject("Account activated");
+//                $message->to($data['email']);
+//            });
+//            return redirect('/')->with('success', "{$user->email} account has been activated.");
+//        }
+//        return redirect('/')->with('error', 'This link doesn\'t seem to be valid.');
+//    }
 
     // Lockscreen
 

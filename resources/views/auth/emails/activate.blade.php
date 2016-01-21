@@ -6,7 +6,7 @@
 
     <h4 class="secondary"><strong>Activation Request</strong></h4>
 
-    <p>Please click this <a href="{{ route('activate', [$id, $token]) }}">link</a>.</p>
+    <p>Please click this <a href="{{ route('admin.users.edit', $id) }}">link</a>.</p>
 
     @include('emails.beautymail.widgets.primaryEnd')
 
