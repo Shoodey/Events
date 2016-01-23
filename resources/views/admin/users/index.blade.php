@@ -5,9 +5,7 @@
 @section('content')
     <section class="content-header">
         <h1>Users</h1>
-        <ol class="breadcrumb">
-            <li class="active"><i class="fa fa-home"></i> Dashboard</li>
-        </ol>
+        {!! Breadcrumbs::render('index-users') !!}
     </section>
 
     <section class="content">

@@ -6,9 +6,7 @@
 
     <section class="content-header">
         <h1>Roles</h1>
-        <ol class="breadcrumb">
-            <li class="active"><i class="fa fa-home"></i> Dashboard</li>
-        </ol>
+        {!! Breadcrumbs::render('create-roles') !!}
     </section>
 
     <section class="content">

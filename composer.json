@@ -9,7 +9,10 @@
         "laravel/framework": "5.2.*",
         "barryvdh/laravel-debugbar": "^2.1",
         "zizaco/entrust": "dev-laravel-5",
-        "adamwathan/bootforms": "^0.7.1"
+        "adamwathan/bootforms": "^0.7.1",
+        "davejamesmiller/laravel-breadcrumbs": "^3.0",
+        "barryvdh/laravel-ide-helper": "^2.1",
+        "doctrine/dbal": "^2.5"
     },
     "require-dev": {
         "fzaninotto/faker": "~1.4",
@@ -46,6 +49,8 @@
             "php artisan clear-compiled"
         ],
         "post-update-cmd": [
+            "php artisan clear-compiled",
+            "php artisan ide-helper:generate",
             "php artisan optimize"
         ]
     },

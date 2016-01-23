@@ -9,9 +9,7 @@
             Dashboard
             <small>A general overview</small>
         </h1>
-        <ol class="breadcrumb">
-            <li class="active"><i class="fa fa-home"></i> Dashboard</li>
-        </ol>
+        {!! Breadcrumbs::render('dashboard') !!}
     </section>
 
     <section class="content">

@@ -19,12 +19,14 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
+    @include('helpers/ladybug')
     @include('helpers/notifications')
 
     @include('admin/partials/header')
     @include('admin/partials/sidebar')
 
     <div class="content-wrapper">
+
         @yield('content')
     </div>
 
