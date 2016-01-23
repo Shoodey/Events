@@ -75,9 +75,9 @@ class AuthController extends Controller
 
         Mail::send('auth.emails.activate', $data, function($message) use ($data)
         {
-            $message->from('noreply@uir-event.com', "UIR Events");
+            $message->from('noreply@uir-events.com', "UIR Events");
             $message->subject("Activate New User");
-            $message->to('shoodey@gmail.com');
+            $message->to('admin@uir-events.com');
         });
 
         return $user;

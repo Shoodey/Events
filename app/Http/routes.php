@@ -7,6 +7,8 @@ Route::group(['middleware' => 'web'], function () {
     Route::get('lock', ['as' => 'lock', 'uses' => 'Auth\AuthController@lock']);
     Route::post('lock', ['as' => 'lock', 'uses' => 'Auth\AuthController@lockPost']);
 
+    Route::post('bug', ['as' => 'bug', 'uses' => 'BugController@post']);
+
     Route::auth();
 
     Route::group(['prefix' => 'admin'], function () {

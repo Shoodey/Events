@@ -17,6 +17,19 @@ class AppServiceProvider extends ServiceProvider
         Validator::extend('alpha_space', function($attribute, $value, $parameters) {
             return preg_match('/^[\pL\s]+$/u', $value);
         });
+
+        app('view')->composer(['layouts.admin', 'layouts.auth', 'auth.lock'], function($view)
+        {
+            $action = app('request')->route()->getAction();
+
+            $controller = class_basename($action['controller']);
+
+            list($controller, $action) = explode('@', str_replace('Controller', '', $controller));
+
+            if($controller === 'Auth') $controller = 'Authentication';
+
+            $view->with(compact('controller', 'action'));
+        });
     }
 
     /**

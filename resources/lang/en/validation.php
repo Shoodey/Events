@@ -106,6 +106,11 @@ return [
     |
     */
 
-    'attributes' => [],
+    'attributes' => [
+        'bugName' => 'name',
+        'bugEmail' => 'email',
+        'bugTitle' => 'title',
+        'bugDescription' => 'dscription'
+    ],
 
 ];

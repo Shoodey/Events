@@ -28,20 +28,22 @@ Installation
 -------------
 
 > 1.  Download zip.
-> 2.  Modify .env
+> 2.  Modify `.env`.
 > 3.  Create  `events` database.
 > 4.  Launch terminal then `cd`into folder.
-> 5.  Run `php artisan migrate`.
-> 6.  (soon) `php artisan db:seed` to populate tables.
-> 7.  Run `php artisan serve` to view login page.
-> 8.  Log in using `admin@uirevents.com`& `admin` credentials couple.
+> 5.  Run `npm install` *(requires nodejs & npm)*.
+> 6.  Run `composer install` or `composer update`.
+> 7.  Run `php artisan migrate`.
+> 8.  php `artisan db:seed` to populate tables.
+> 9.  Run your local server.
+> 10.  Log in using `admin@uir-events.com` & `admin` credentials couple.
 
 ----------------------------
 
 Completed Tasks
 --------------------
 
-[12/01] List of completed tasks (non exhaustive)
+[23/01/2016] List of completed tasks (non exhaustive)
 
 > **Registration:**
 > 
@@ -76,27 +78,34 @@ Completed Tasks
 >
 > * An email is sent to the user's email address each time he performs a major action.
 > * Email template is handled using [BeautyMail](https://github.com/Snowfire/Beautymail).
->
-> **Roles:**
 > 
-> * Index
+> **Roles & Permissions:**
 > 
+> * Roles can be created in the fly.
+> * Each role is assigned to a specific set of users.
+> * Each role has a set of permissions.
+> * An `admin` role is assigned to the application administrator, providing a full access.
+> 
+> **Breadcrumbs:**
+> 
+> * Breadcrumbs are used to help the user locate himself, using [Laravel Breadcrumbs](https://github.com/davejamesmiller/laravel-breadcrumbs)
+> 
+> **Bug Reports:**
+> 
+> * On any page, the user can click the `lady bug` button and send a request to the administrator containing issues encountered.
 
 ----------
 
 TODO
 -------
 
->
-> **Roles & Permissions:**
-> 
-> * Roles can be created in the fly.
-> * Each role is assigned to a specific set of users.
-> * Each role has a set of permissions.
-> * A `superAdmin` role is assigned to the application admin, providing him a full accces.
-> 
+
 > **Notifications:**
 >
 > * Manage notifications using [notifynder](https://github.com/fenos/Notifynder).
+>
+> **Entities:**
+>
+> * Create entities which will regroup users under the same function (Community Managers, Club Presidents, Poles Assistants...)
 
 -----------

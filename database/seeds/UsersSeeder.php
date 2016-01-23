@@ -26,7 +26,7 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert(
             [
                 'name' => 'admin',
-                'email' => 'admin@admin.com',
+                'email' => 'admin@uir-events.com',
                 'password' => bcrypt('admin'),
                 'active' => 1,
                 'created_at' => Carbon::now(),
@@ -36,7 +36,7 @@ class UsersSeeder extends Seeder
         DB::table('users')->insert(
             [
                 'name' => 'user',
-                'email' => 'user@user.com',
+                'email' => 'user@uir-events.com',
                 'password' => bcrypt('user'),
                 'active' => 1,
                 'created_at' => Carbon::now(),

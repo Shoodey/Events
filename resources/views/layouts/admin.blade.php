@@ -19,7 +19,6 @@
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
-    @include('helpers/ladybug')
     @include('helpers/notifications')
 
     @include('admin/partials/header')
@@ -28,6 +27,8 @@
     <div class="content-wrapper">
 
         @yield('content')
+        @include('helpers/ladybug')
+
     </div>
 
     @include('admin/partials/footer')

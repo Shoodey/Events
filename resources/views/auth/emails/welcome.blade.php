@@ -8,8 +8,9 @@
 
     <p>An administrator will validate your account within 24 hours. </p>
     <p>If you think this operation is taking too long, please send an email explaining your situation at:
-        <strong>contact@uirevents.com</strong>
+        <strong>admin&at;uir-events.com</strong>
     </p>
+    @
 
     @include('emails.beautymail.widgets.primaryEnd')
 

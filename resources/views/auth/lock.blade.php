@@ -58,6 +58,8 @@
         </div>
     </div>
 
+    @include('helpers/ladybug')
+
     <script src="{{ asset('js/app.min.js') }}"></script>
 
     @yield('notifications')
