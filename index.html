@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>Events by Shoodey</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">Events</h1>
+      <h2 class="project-tagline"></h2>
+      <a href="https://github.com/Shoodey/Events" class="btn">View on GitHub</a>
+      <a href="https://github.com/Shoodey/Events/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/Shoodey/Events/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="uir-events" class="anchor" href="#uir-events" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>UIR <strong>EVENTS</strong>
+</h1>
+
+<p>Event management application for the <strong>International University of Rabat</strong></p>
+
+<hr>
+
+<h2>
+<a id="the-team" class="anchor" href="#the-team" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>The Team</h2>
+
+<p>Looking for additional team members.</p>
+
+<table>
+<thead>
+<tr>
+<th align="left">Name</th>
+<th align="right">Role</th>
+<th align="left">Twitter</th>
+<th align="center">Email</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left">EL AMRI Ali</td>
+<td align="right">Web Developer</td>
+<td align="left">@MrShoodey</td>
+<td align="center"><a href="mailto:shoodey@gmail.com">shoodey@gmail.com</a></td>
+</tr>
+</tbody>
+</table>
+
+<hr>
+
+<h2>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Installation</h2>
+
+<blockquote>
+<ol>
+<li> Download zip.</li>
+<li> Modify <code>.env</code>.</li>
+<li> Create  <code>events</code> database.</li>
+<li> Launch terminal then <code>cd</code>into folder.</li>
+<li> Run <code>npm install</code> <em>(requires nodejs &amp; npm)</em>.</li>
+<li> Run <code>composer install</code> or <code>composer update</code>.</li>
+<li> Run <code>php artisan migrate</code>.</li>
+<li> php <code>artisan db:seed</code> to populate tables.</li>
+<li> Run your local server.</li>
+<li> Log in using <code>admin@uir-events.com</code> &amp; <code>admin</code> credentials couple.</li>
+</ol>
+</blockquote>
+
+<hr>
+
+<h2>
+<a id="completed-tasks" class="anchor" href="#completed-tasks" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>Completed Tasks</h2>
+
+<p>[23/01/2016] List of completed tasks (non exhaustive)</p>
+
+<blockquote>
+<p><strong>Registration:</strong></p>
+
+<ul>
+<li>Users can register using (Full name, Email and Password).</li>
+<li>Welcome email is sent, notifying that an admin will shortly activate account.</li>
+</ul>
+
+<p><strong>Activation:</strong></p>
+
+<ul>
+<li>An admin will activate the new user's account from a link sent to his email address.</li>
+<li>Only active account are allowed to log in and view the dashboard panel.</li>
+</ul>
+
+<p><strong>Login:</strong></p>
+
+<ul>
+<li>Users can log in using (Email and Password)</li>
+<li>As mentioned above, only active account are allowed to log in and view the dashboard panel.</li>
+</ul>
+
+<p><strong>Lockscreen:</strong></p>
+
+<ul>
+<li>When loging out, the user's session is locked, allowing him to simply re-login using only password.</li>
+<li>The user can also chose to login user a different account.</li>
+</ul>
+
+<p><strong>Password Reset</strong></p>
+
+<ul>
+<li>If password is forgotten, the user can send a password reset request to his email address.</li>
+<li>The link will allow him to set a new password then login.</li>
+</ul>
+
+<p><strong>Toasts:</strong></p>
+
+<ul>
+<li>The user is notified each time he performs a major action using <a href="https://github.com/CodeSeven/toastr">toastr</a>.</li>
+</ul>
+
+<p><strong>Emails:</strong></p>
+
+<ul>
+<li>An email is sent to the user's email address each time he performs a major action.</li>
+<li>Email template is handled using <a href="https://github.com/Snowfire/Beautymail">BeautyMail</a>.</li>
+</ul>
+
+<p><strong>Roles &amp; Permissions:</strong></p>
+
+<ul>
+<li>Roles can be created in the fly.</li>
+<li>Each role is assigned to a specific set of users.</li>
+<li>Each role has a set of permissions.</li>
+<li>An <code>admin</code> role is assigned to the application administrator, providing a full access.</li>
+</ul>
+
+<p><strong>Breadcrumbs:</strong></p>
+
+<ul>
+<li>Breadcrumbs are used to help the user locate himself, using <a href="https://github.com/davejamesmiller/laravel-breadcrumbs">Laravel Breadcrumbs</a>
+</li>
+</ul>
+
+<p><strong>Bug Reports:</strong></p>
+
+<ul>
+<li>On any page, the user can click the <code>lady bug</code> button and send a request to the administrator containing issues encountered.</li>
+</ul>
+</blockquote>
+
+<hr>
+
+<h2>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>TODO</h2>
+
+<blockquote>
+<p><strong>Notifications:</strong></p>
+
+<ul>
+<li>Manage notifications using <a href="https://github.com/fenos/Notifynder">notifynder</a>.</li>
+</ul>
+
+<p><strong>Entities:</strong></p>
+
+<ul>
+<li>Create entities which will regroup users under the same function (Community Managers, Club Presidents, Poles Assistants...)</li>
+</ul>
+</blockquote>
+
+<hr>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/Shoodey/Events">Events</a> is maintained by <a href="https://github.com/Shoodey">Shoodey</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+  
+  </body>
+</html>
