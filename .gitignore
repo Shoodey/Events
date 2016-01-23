@@ -1,0 +1,7 @@
+/vendor
+/resources
+/node_modules
+/bootstrap
+/storage
+.phpstorm.meta.php
+_ide_helper.php
