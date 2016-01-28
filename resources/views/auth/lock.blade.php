@@ -21,7 +21,7 @@
 
     <div class="lockscreen-wrapper">
         <div class="lockscreen-logo">
-            <a href="{{ url('/') }}">UIR<b>EVENTS</b></a>
+            <a href="{{ url('/') }}">{{ env("APP_PNAME") }}<b>{{ env("APP_SNAME") }}</b></a>
         </div>
 
         <div class="lockscreen-name">{{ $name }}</div>

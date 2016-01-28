@@ -1,9 +1,9 @@
 <header class="main-header">
     <a href="{{ url('/') }}" class="logo">
         <!-- mini logo for sidebar mini 50x50 pixels -->
-        <span class="logo-mini">U<b>E</b></span>
+        <span class="logo-mini">{{ substr(env("APP_PNAME"), 0, 1) }}<b>{{ substr(env("APP_SNAME"), 0, 1) }}</b></span>
         <!-- logo for regular state and mobile devices -->
-        <span class="logo-lg">UIR<b>EVENTS</b></span>
+        <span class="logo-lg">{{ env("APP_PNAME") }}<b>{{ env("APP_SNAME") }}</b></span>
     </a>
 
     <nav class="navbar navbar-static-top" role="navigation">
